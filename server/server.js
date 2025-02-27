@@ -224,6 +224,10 @@ app.post("/calculate-distance", async (req, res) => {
       return res.status(400).json({ error: "Source and destination are required" });
     }
 
+    app.get("/",(req,res)=>{
+    res.json("Hello");
+})
+
     const osrmUrl = `http://router.project-osrm.org/route/v1/driving/${source.lng},${source.lat};${destination.lng},${destination.lat}?overview=false`;
 
     const response = await axios.get(osrmUrl);
